@@ -6,12 +6,18 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        //Comico:
+        comico: ["Comico", "sans-serif"],
+      },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "main-bg": ` linear-gradient( to bottom, rgba(255, 255, 255, 0.480), rgba(255, 255, 255, 0.480)), url("/images/paper.jpg");`,
+        "main-bg-dark": ` linear-gradient( to bottom, rgba(17, 24 ,39, 0.755), rgba(17, 24 ,39, 0.755)), url("/images/black-paper.jpg");`,
+        circle: "radial-gradient(white , transparent);",
+        "circle-dark": "radial-gradient(#111827, transparent);",
       },
     },
   },
