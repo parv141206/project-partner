@@ -5,9 +5,8 @@ const useTheme = () => {
   const context = useContext(ThemeContext);
 
   if (!context) {
-    throw new Error("useTheme must be used within a ThemeProvider");
+    throw new Error("Abe hook provider na andar ave nooooooooooooooooob");
   }
-
   const { theme, setTheme } = context;
 
   return { theme, setTheme };

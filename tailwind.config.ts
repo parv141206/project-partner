@@ -10,8 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        //Comico:
         comico: ["Comico", "sans-serif"],
+        winkle: ["Winkle", "sans-serif"],
       },
       backgroundImage: {
         "main-bg": ` linear-gradient( to bottom, rgba(255, 255, 255, 0.480), rgba(255, 255, 255, 0.480)), url("/images/paper.jpg");`,

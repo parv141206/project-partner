@@ -1,6 +1,8 @@
 "use client";
 import Features from "@/Components/Stateless/Home/Features";
 import LandingHeader from "@/Components/Stateless/Home/LandingHeader";
+import LanguagesSupported from "@/Components/Stateless/Home/LanguagesSupported";
+import Pricing from "@/Components/Stateless/Home/Pricing";
 import { calculateTransform } from "@/Utils/scrollUtils";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
@@ -54,6 +56,12 @@ export default function Home() {
       </div>
       <div>
         <Features />
+      </div>
+      <div>
+        <LanguagesSupported />
+      </div>
+      <div>
+        <Pricing />
       </div>
     </div>
   );

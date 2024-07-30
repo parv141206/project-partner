@@ -4,6 +4,10 @@ import "../globals.css";
 import { useState } from "react";
 import ThemeContext from "@/Contexts/Theme";
 import Navbar from "@/Components/Stateless/Navbar";
+import Footer from "@/Components/Stateless/Footer";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import firebase_app from "@/Firebase/connection";
+import { AuthProvider } from "@/Contexts/UserContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,10 +17,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const [theme, setTheme] = useState("light");
+  const auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const uid = user.uid;
+      console.log(uid);
+    } else {
+      console.log("Na");
+    }
+  });
   return (
     <html lang="en" className={`${theme}`}>
       <head>
         <title>Project Partner</title>
+
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#000000" />
@@ -53,16 +67,19 @@ export default function RootLayout({
         <meta name="theme-color" content="#000000" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
-      <ThemeContext.Provider value={{ theme, setTheme }}>
-        <body
-          className={`${inter.className} bg-cover bg-center bg-repeat ${
-            theme === "dark" ? "bg-main-bg-dark text-gray-100" : "bg-main-bg"
-          }`}
-        >
-          <Navbar />
-          {children}
-        </body>
-      </ThemeContext.Provider>
+      <AuthProvider>
+        <ThemeContext.Provider value={{ theme, setTheme }}>
+          <body
+            className={`${inter.className} bg-cover bg-center bg-repeat ${
+              theme === "dark" ? "bg-main-bg-dark text-gray-100" : "bg-main-bg"
+            }`}
+          >
+            <Navbar />
+            <main className="min-h-[60vh]">{children}</main>
+            <Footer />
+          </body>
+        </ThemeContext.Provider>
+      </AuthProvider>
     </html>
   );
 }

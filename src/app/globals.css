@@ -7,6 +7,10 @@
   font-family: "Comico";
   src: url("/fonts/Comico.otf");
 }
+@font-face {
+  font-family: "Winkle";
+  src: url("/fonts/Winkle.ttf");
+}
 :root {
   --primary: #eb214d;
   --primary-light: #ff4e6b;
@@ -42,4 +46,15 @@
   height: 10px;
   background: red;
   transform-origin: 0%;
+}
+.btn {
+  @apply cursor-pointer bg-white px-3 py-1 text-black;
+  box-shadow: black 6px 6px 0px 1px;
+  transition: all 0.2s ease-in-out;
+}
+.btn:hover {
+  box-shadow: black 0px 0px 0px 0px;
+}
+.input {
+  @apply border border-black bg-white/25 p-3;
 }

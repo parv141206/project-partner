@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import Icon from "../../Statefull/Icon";
 
 interface Position {
-  x: number; // Position in percentage
-  y: number; // Position in percentage
+  x: number;
+  y: number;
 }
 
 const iconSources = [
@@ -18,7 +18,6 @@ const iconSources = [
   "/images/icons/react.svg",
 ];
 
-// Function to get random position in percentage
 const getRandomPosition = (
   maxWidth: number,
   maxHeight: number,
@@ -32,7 +31,6 @@ const getRandomPosition = (
   const x = Math.random() * (maxX - minX) + minX;
   const y = Math.random() * (maxY - minY) + minY;
 
-  // Convert pixel values to percentage
   const xPercent = (x / maxWidth) * 100;
   const yPercent = (y / maxHeight) * 100;
 
@@ -40,8 +38,8 @@ const getRandomPosition = (
 };
 
 const HomePageAnimation: React.FC = () => {
-  const [width, height] = useWindowSize(); // Get the current window size
-  const iconSize = 80; // Icon size in pixels
+  const [width, height] = useWindowSize();
+  const iconSize = 80;
   const [positions, setPositions] = useState<Position[]>([]);
 
   const updatePositions = () => {
@@ -66,13 +64,11 @@ const HomePageAnimation: React.FC = () => {
   };
 
   useEffect(() => {
-    // Update positions immediately on mount
     updatePositions();
 
-    // Set interval only if the screen width is greater than 768 pixels
     if (width > 768) {
       const interval = setInterval(updatePositions, 3 * 1000);
-      return () => clearInterval(interval); // Cleanup interval on unmount
+      return () => clearInterval(interval);
     }
   }, [width, height]);
 
@@ -92,7 +88,7 @@ const HomePageAnimation: React.FC = () => {
             transition: { duration: 2, ease: "easeInOut" },
           }}
           style={{
-            pointerEvents: "none", // Prevent interaction with icons
+            pointerEvents: "none",
           }}
         >
           <Icon src={src} className="h-20 w-20" />
