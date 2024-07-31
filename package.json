@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^5.16.6",
     "@react-hook/window-size": "^3.1.1",
     "@types/crypto-js": "^4.2.2",
     "@types/nodemailer": "^6.4.15",

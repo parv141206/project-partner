@@ -15,7 +15,7 @@ export default function SignIn() {
   };
   const user = useContext(AuthContext);
 
-  if (user) {
+  if (user?.user) {
     return (
       <div className="flex w-full items-center justify-center py-16 text-5xl">
         You are already logged in 🤗

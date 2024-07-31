@@ -9,6 +9,7 @@ export default function PricingCard({
   features,
   price,
   children,
+  action,
 }: {
   id?: string;
   className?: string;
@@ -17,6 +18,7 @@ export default function PricingCard({
   features?: string[];
   price?: string;
   children?: React.ReactNode;
+  action?: React.ReactNode;
 }) {
   return (
     <div
@@ -52,7 +54,7 @@ export default function PricingCard({
           </li>
         ))}
       </ul>
-      <Button title="Get started" />
+      {action}
     </div>
   );
 }
