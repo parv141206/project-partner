@@ -69,7 +69,7 @@ export default function RootLayout({
       <AuthProvider>
         <ThemeContext.Provider value={{ theme, setTheme }}>
           <body
-            className={`${inter.className} bg-cover bg-center bg-repeat ${
+            className={`${inter.className} relative bg-cover bg-center bg-repeat ${
               theme === "dark" ? "bg-main-bg-dark text-gray-100" : "bg-main-bg"
             }`}
           >

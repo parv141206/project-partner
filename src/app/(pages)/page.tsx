@@ -60,7 +60,7 @@ export default function Home() {
       <div>
         <LanguagesSupported />
       </div>
-      <div>
+      <div id="pricing">
         <Pricing />
       </div>
     </div>

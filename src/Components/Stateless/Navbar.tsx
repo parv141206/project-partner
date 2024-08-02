@@ -11,7 +11,7 @@ import { signOutFromGoogle } from "@/Utils/signIn";
 export default function Navbar() {
   const { theme, setTheme } = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
-  const links = ["Pricing", "Subjects"];
+  const links = ["Pricing"];
   const user = useContext(AuthContext);
 
   return (
@@ -27,15 +27,9 @@ export default function Navbar() {
 
           {/* Center Links */}
           <div className="hidden flex-1 justify-center gap-4 md:flex">
-            {links.map((link) => (
-              <Link
-                href={`/${link.toLowerCase()}`}
-                key={link}
-                className="text-xl font-bold"
-              >
-                {link}
-              </Link>
-            ))}
+            <Link href={`/#pricing`} className="text-xl font-bold">
+              Pricing
+            </Link>
             {user?.user ? (
               <>
                 <Link className="text-xl font-bold" href="/dashboard">

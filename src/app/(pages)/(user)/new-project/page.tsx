@@ -4,10 +4,8 @@ import { TextField } from "@mui/material";
 import useTheme from "@/Hooks/useTheme";
 import PricingCard from "@/Components/Statefull/PricingCard";
 import { motion } from "framer-motion";
-import Button from "@/Components/Statefull/Button";
 import { ProjectInfo } from "@/types";
 import Modal from "@/Components/Statefull/Modal";
-import axios from "axios";
 import { addNewProject } from "@/Firebase/Functions/Project";
 export default function AddProject() {
   const [step, setStep] = useState(1);
@@ -71,6 +69,8 @@ export default function AddProject() {
       collegeName,
       customizations,
       teamInfo,
+      status: "pending",
+      googleDriveLink: "",
     };
 
     console.log(data);

@@ -2,7 +2,10 @@
 import ProjectInfoCard from "@/Components/Statefull/ProjectInfoCard";
 import Skeleton from "@/Components/Stateless/Skeleton";
 import { AuthContext } from "@/Contexts/UserContext";
-import { fetchUsersProjects } from "@/Firebase/Functions/Project";
+import {
+  fetchCompletedProjects,
+  fetchUsersProjects,
+} from "@/Firebase/Functions/Project";
 import React, { useContext, useEffect, useState } from "react";
 
 export default function Overview() {
@@ -13,7 +16,7 @@ export default function Overview() {
   useEffect(() => {
     const fetchData = async () => {
       console.log(user?.user?.email);
-      const projects: any = await fetchUsersProjects(user?.user?.email!);
+      const projects: any = await fetchCompletedProjects(user?.user?.email!);
       console.log(projects);
       setProjects(projects);
       setIsLoading(false);

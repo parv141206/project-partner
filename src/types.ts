@@ -9,4 +9,7 @@ export interface ProjectInfo {
   collegeName?: string;
   customizations?: string;
   teamInfo?: string;
+  status: "pending" | "completed" | "cancelled";
+  id?: string;
+  googleDriveLink?: string;
 }

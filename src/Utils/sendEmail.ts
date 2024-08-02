@@ -20,3 +20,12 @@ export default async function sendEmail(email: string, randomNumber: string) {
     text: `Your verification code for signing in to Project Partner is ${randomNumber}`,
   });
 }
+
+export async function sendGoogleDriveLink(email: string, link: string) {
+  await transporter.sendMail({
+    from: "parv141206@gmail.com",
+    to: email,
+    subject: "Google Drive Link",
+    text: `Your Google Drive Link is ${link}`,
+  });
+}

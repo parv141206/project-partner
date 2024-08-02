@@ -11,14 +11,14 @@ export default function Sidebar() {
         <span className="text-indigo-500"> {user?.user?.username} </span>
       </div>
       <hr className="border-black" />
-      <Link href="/dashboard" className="text-xl font-bold">
+      <Link href="/admin" className="text-xl font-bold">
         <span>📚</span> Overview
       </Link>
-      <Link href="/new-project" className="text-xl font-bold">
-        <span>➕</span> New Project
+      <Link href="/admin/pending" className="text-xl font-bold">
+        <span>🟡</span> Pending Projects
       </Link>
-      <Link href="/dashboard/completed" className="text-xl font-bold">
-        <span>😎</span> Completed Projects
+      <Link href="/admin/completed" className="text-xl font-bold">
+        <span>🟢</span> Completed Projects
       </Link>
     </div>
   );
