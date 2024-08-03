@@ -2,6 +2,7 @@ import PricingCard from "@/Components/Statefull/PricingCard";
 import React from "react";
 import { motion } from "framer-motion";
 import Button from "@/Components/Statefull/Button";
+import Link from "next/link";
 
 export default function Pricing() {
   return (
@@ -22,7 +23,11 @@ export default function Pricing() {
               "Fully documented",
               "Delivered withing 24 hours!",
             ],
-            action: <Button title="Get Started" />,
+            action: (
+              <Link href="/new-project" className="btn">
+                Get Started
+              </Link>
+            ),
           },
           {
             title: "Pro",
@@ -36,7 +41,11 @@ export default function Pricing() {
               "We provide full documentation according to your college!",
               "Added support for PPTs, PDFs, etc.",
             ],
-            action: <Button title="Get Started" />,
+            action: (
+              <Link href="/new-project" className="btn">
+                Get Started
+              </Link>
+            ),
           },
           {
             title: "Dedicated",
@@ -49,7 +58,11 @@ export default function Pricing() {
               "Highly Customizable",
               "We provide full documentation according to your college!",
             ],
-            action: <Button title="Get Started" />,
+            action: (
+              <Link href="/new-project" className="btn">
+                Get Started
+              </Link>
+            ),
           },
         ].map((card, index) => (
           <motion.div

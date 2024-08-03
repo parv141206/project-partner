@@ -18,7 +18,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     }
   }, []);
   if (!user?.user) {
-    return <div>You are not logged in.</div>;
+    return (
+      <div className="flex h-screen w-full items-center justify-center text-center text-3xl">
+        You are not logged in.
+      </div>
+    );
   }
 
   return (

@@ -17,8 +17,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       setGreetings("Good Evening 🤖");
     }
   }, []);
-  if (!user?.user) {
-    return <div>You are not logged in.</div>;
+  if (!user?.user || user.user.email !== "parv141206@gmail.com") {
+    <div className="flex h-screen w-full items-center justify-center text-center text-3xl">
+      Not authorized
+    </div>;
   }
   return (
     <div className="flex">

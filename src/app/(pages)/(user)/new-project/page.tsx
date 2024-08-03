@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { TextField } from "@mui/material";
 import useTheme from "@/Hooks/useTheme";
 import PricingCard from "@/Components/Statefull/PricingCard";
@@ -7,7 +7,10 @@ import { motion } from "framer-motion";
 import { ProjectInfo } from "@/types";
 import Modal from "@/Components/Statefull/Modal";
 import { addNewProject } from "@/Firebase/Functions/Project";
+import { AuthContext } from "@/Contexts/UserContext";
 export default function AddProject() {
+  const user = useContext(AuthContext);
+
   const [step, setStep] = useState(1);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -60,7 +63,7 @@ export default function AddProject() {
     setStep(5);
     const data: ProjectInfo = {
       name,
-      email,
+      email: user?.user?.email!,
       subject,
       projectTitle,
       description,
@@ -85,7 +88,13 @@ export default function AddProject() {
   };
 
   const { theme } = useTheme();
-
+  if (!user?.user) {
+    return (
+      <div className="flex h-screen w-full items-center justify-center text-center text-3xl">
+        You are not logged in.
+      </div>
+    );
+  }
   return (
     <div
       className={`flex flex-col items-center justify-center p-10 text-start`}
@@ -127,7 +136,7 @@ export default function AddProject() {
             />
           </div>
           <div className="flex flex-col">
-            <TextField
+            {/* <TextField
               id="email"
               label="Email"
               variant="outlined"
@@ -152,7 +161,7 @@ export default function AddProject() {
                   },
                 },
               }}
-            />
+            /> */}
           </div>
           <div className="flex flex-col">
             <TextField
